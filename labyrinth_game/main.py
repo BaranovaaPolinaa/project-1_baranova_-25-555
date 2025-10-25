@@ -1,4 +1,4 @@
-from typing import Any, Dict
+from typing import Any
 
 from labyrinth_game.player_actions import (
     get_input,
@@ -14,7 +14,7 @@ from labyrinth_game.utils import (
     solve_puzzle,
 )
 
-game_state: Dict[str, Any] = {
+game_state: dict[str, Any] = {
     "player_inventory": [],
     "current_room": "entrance",
     "game_over": False,
