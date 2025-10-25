@@ -48,7 +48,7 @@ ROOMS = {
             "Старая оружейная комната. На стене висит меч, рядом — небольшая "
             "бронзовая шкатулка."
         ),
-        "exits": {"south": "library"},
+        "exits": {"south": "library", "east": "garden"},
         "items": ["sword", "bronze box"],
         "puzzle": None,
     },
