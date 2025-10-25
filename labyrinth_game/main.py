@@ -37,6 +37,11 @@ def process_command(game_state: dict[str, Any], command: str):
             show_inventory(game_state)
         case "north" | "south" | "east" | "west":
             move_player(game_state, cmd)
+        case "go":
+            if arg and arg in ["north", "south", "east", "west"]:
+                move_player(game_state, arg)
+            else:
+                print("Укажите направление. Пример: go north")
         case "take":
             if arg:
                 take_item(game_state, arg)
@@ -49,7 +54,8 @@ def process_command(game_state: dict[str, Any], command: str):
                 print("Укажите предмет для использования. Пример: use torch")
         case "solve":
             if game_state.get("current_room") == "treasure_room":
-                if attempt_open_treasure(game_state):
+                success = attempt_open_treasure(game_state)
+                if success:
                     game_state["game_over"] = True
                     print("Поздравляем с победой! Игра завершена.")
             else:
